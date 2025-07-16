@@ -1,6 +1,13 @@
 # A/B Test Analysis: Impact of Personalized Messaging
 
-This project analyzes the effectiveness of **personalized vs. generic messages** on user engagement. The analysis includes a **PySpark-based data pipeline** and a **Python-based statistical test** using a Z-test to determine if personalization significantly improves engagement rates.
+This project analyzes the effectiveness of **personalized vs. generic messages** on user engagement. The workflow includes:
+
+- Data processing with **PySpark** (handling 580,000+ rows efficiently)
+- Experiment design with **power analysis**
+- Statistical validation via **Z-test & confidence intervals**
+- Business interpretation and practical recommendations
+
+It showcases an end-to-end A/B testing pipeline that simulates a real-world marketing experiment.
 
 ---
 
@@ -36,6 +43,21 @@ Notebook: [`01_data_cleaning_pyspark.ipynb`](notebooks/01_data_cleaning_pyspark.
 
 ---
 
+## Power Analysis (Experimental Design)
+
+Before running the test, we assume that:
+
+- The **baseline engagement rate** is ~1.79% (from Generic group)
+- A **+0.5% absolute lift** (to 2.29%) is the **Minimum Detectable Effect (MDE)** we care about
+- We aim for **80% power** and **5% significance (alpha)**
+
+Using power calculations (`statsmodels`), we estimated that:
+> We would need **~9,848 users per group** to detect a +0.5% lift with statistical confidence.
+
+This defines the smallest effect size we consider **business-relevant**. Any improvement smaller than 0.5% is considered not worth acting upon.
+
+---
+
 ## Statistical Analysis with Python
 
 Performed with `pandas` and `statsmodels`:
@@ -68,7 +90,7 @@ Error bar showing:
 - Absolute Lift = 0.77%
 - Confidence interval range: [0.60%, 0.94%]
 
-### 3. **Power Curve (optional)**
+### 3. **Power Curve**
 Power vs Sample Size curve to show how power changes with user count
 
 You can save these graphs as `.png` in the `charts/` folder and reference them in the README like:
@@ -77,31 +99,40 @@ You can save these graphs as `.png` in the `charts/` folder and reference them i
 ---
 
 ## Business Insight
-- Personalized messages led to a statistically significant +0.77% lift in engagement rate
-- 95% CI: between +0.60% and +0.94%
-- At this data scale (~588,000 users), this equals ~4,500 additional user engagements
-- Strong evidence to recommend scaling personalization across campaigns
+- The observed lift of **+0.77%** is both statistically significant **and above our 0.5% MDE**
+- The **95% CI [+0.60%, +0.94%]** is **entirely above** the MDE threshold
+- **Therefore, the result is not just statistically valid — it's also **business-relevant and profitable** to act on
+
+However, **if the CI included or fell below the MDE (e.g., [+0.2%, +0.5%])**, the result might still be "statistically significant" but **not worth implementing**, especially if personalization increases campaign complexity or cost.
+
+This project **explicitly considers this tradeoff**, simulating real-world decision-making in marketing analytics.
+
+---
 
 ## Conclusion
-This experiment demonstrates:
+- Personalized messaging increased engagement rate by **+0.77%**, with high statistical confidence
+- The improvement passes both **statistical and business significance thresholds**
+- Given the data volume (~588,000 users), the gain equals **~4,500 extra engaged users**, making the uplift highly impactful
+
+The experiment demonstrates:
+
 - Robust A/B testing design
-- Statistical rigor using power analysis and confidence intervals
-- Actionable business recommendation
+- Thoughtful power analysis and MDE planning
+- End-to-end implementation (data → analysis → business recommendation)
+- Communication that aligns statistical outcome with business value
+
+---
 
 ## Repository Structure
-ab-test-personalized-messaging/
+pyspark-ab-test-engagement-analysis/
 ├── notebooks/
-│   ├── 01_data_cleaning_pyspark.ipynb
-│   └── 02_statistical_analysis_python.ipynb
-├── charts/    
-└── README.md
+│ ├── 01_data_cleaning_pyspark.ipynb
+│ └── 02_statistical_analysis_python.ipynb
+├── charts/
+│ └── 02_statistical_analysis_python.ipynb
+└──  README.md
 
 
 
-
-
-
-
-[here](https://drive.google.com/file/d/1Dgrd8WjGkMHk8IVkioEECeAsPokpC0J8/view?usp=sharing).
 
 
