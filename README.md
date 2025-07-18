@@ -54,7 +54,7 @@ Before running the test, we assume that:
 Using power calculations (`statsmodels`), we estimated that:
 > We would need **~9,848 users per group** to detect a +0.5% lift with statistical confidence.
 
-This defines the smallest effect size we consider **business-relevant**. Any improvement smaller than 0.5% is considered not worth acting upon.
+We define a 0.5% lift as the Minimum Detectable Effect (MDE) — the smallest improvement that would justify business action, considering campaign complexity and potential ROI. Any effect smaller than this threshold would likely not be worth implementing at scale.
 
 ---
 
@@ -67,7 +67,8 @@ Performed with `pandas` and `statsmodels`:
 
 
 - **Two-proportion Z-test** comparing engagement between groups
-  > - p-value < 0.0000017  
+  > - p-value < 0.0000017
+  > - Test was one-tailed, assuming personalization can only improve engagement  
   > Statistically significant
 
 - Calculated **Confidence Interval (95%)** for absolute lift
@@ -107,6 +108,16 @@ The bar shows the observed absolute lift of 0.77%, with confidence bounds at 0.6
 - The company should **scale up personalized messaging**, as it yields a meaningful return at scale.
 
 > However, if the confidence interval had included or fallen below the MDE (e.g., [+0.2%, +0.5%]), the result might be statistically significant but **not worth implementation**, especially if personalization incurs higher campaign complexity or operational cost.
+
+---
+
+## Skills Demonstrated
+
+- PySpark for scalable data preprocessing
+- A/B test design with power analysis and MDE reasoning
+- Hypothesis testing using Z-test and confidence intervals
+- Business interpretation of statistical outcomes
+- Visual storytelling for data-driven decision making
 
 ---
 
