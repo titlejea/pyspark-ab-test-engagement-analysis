@@ -138,6 +138,8 @@ pyspark-ab-test-engagement-analysis/
 📁 Dataset (external):  
 🔗 [Engagement Dataset (Google Drive)](https://drive.google.com/file/d/1Dgrd8WjGkMHk8IVkioEECeAsPokpC0J8/view?usp=sharing)
 
+---
 
-
+Created by Title Jearrajinda — 2025
+For questions, feel free to open an issue or reach out.
 
