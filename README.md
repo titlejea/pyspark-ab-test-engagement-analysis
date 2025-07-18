@@ -25,7 +25,7 @@ The dataset contains user-level interaction logs with the following columns:
 - `message_type`: 'Personalized' or 'Generic'
 - `engaged`: Boolean flag indicating user engagement
 - `total_messages_seen`: Total messages seen by the user
-- `most_engagement_weekday`, `most_engagement_hour`: Temporal behavior features
+- `most_engagement_weekday`, `most_engagement_hour`: The weekday and hour when each user most frequently engaged
 
 ---
 
