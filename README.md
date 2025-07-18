@@ -117,12 +117,11 @@ pyspark-ab-test-engagement-analysis/
 ├── notebooks/
 │   ├── 01_data_cleaning_pyspark.ipynb
 │   └── 02_statistical_analysis_python.ipynb
-├── charts/
+├── images/
 │   ├── engagement_bar.png
 │   ├── lift_confidence_interval.png
 │   └── power_curve.png
-├── README.md
-└── requirements.txt
+└── README.md
 ```
 
 📁 Dataset (external):  
