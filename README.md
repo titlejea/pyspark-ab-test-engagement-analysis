@@ -99,40 +99,34 @@ The bar shows the observed absolute lift of 0.77%, with confidence bounds at 0.6
 
 ---
 
-## Business Insight
-- The observed lift of **+0.77%** is both statistically significant **and above our 0.5% MDE**
-- The **95% CI [+0.60%, +0.94%]** is **entirely above** the MDE threshold
-- **Therefore, the result is not just statistically valid — it's also **business-relevant and profitable** to act on
+## Business Insight & Conclusion
 
-However, **if the CI included or fell below the MDE (e.g., [+0.2%, +0.5%])**, the result might still be "statistically significant" but **not worth implementing**, especially if personalization increases campaign complexity or cost.
+- The observed lift of **+0.77%** is both statistically significant **and above our 0.5% MDE**.
+- The **95% Confidence Interval [+0.60%, +0.94%]** is **entirely above** the MDE threshold, making the result **business-relevant**.
+- Given the sample size (~588,000 users), this translates to approximately **4,500 additional user engagements**.
+- The company should **scale up personalized messaging**, as it yields a meaningful return at scale.
 
-This project **explicitly considers this tradeoff**, simulating real-world decision-making in marketing analytics.
-
----
-
-## Conclusion
-- Personalized messaging increased engagement rate by **+0.77%**, with high statistical confidence
-- The improvement passes both **statistical and business significance thresholds**
-- Given the data volume (~588,000 users), the gain equals **~4,500 extra engaged users**, making the uplift highly impactful
-
-The experiment demonstrates:
-
-- Robust A/B testing design
-- Thoughtful power analysis and MDE planning
-- End-to-end implementation (data → analysis → business recommendation)
-- Communication that aligns statistical outcome with business value
+> However, if the confidence interval had included or fallen below the MDE (e.g., [+0.2%, +0.5%]), the result might be statistically significant but **not worth implementation**, especially if personalization incurs higher campaign complexity or operational cost.
 
 ---
 
 ## Repository Structure
+
+```
 pyspark-ab-test-engagement-analysis/
 ├── notebooks/
-│ ├── 01_data_cleaning_pyspark.ipynb
-│ └── 02_statistical_analysis_python.ipynb
+│   ├── 01_data_cleaning_pyspark.ipynb
+│   └── 02_statistical_analysis_python.ipynb
 ├── charts/
-│ └── 02_statistical_analysis_python.ipynb
-└──  README.md
+│   ├── engagement_bar.png
+│   ├── lift_confidence_interval.png
+│   └── power_curve.png
+├── README.md
+└── requirements.txt
+```
 
+📁 Dataset (external):  
+🔗 [Engagement Dataset (Google Drive)](https://drive.google.com/file/d/1Dgrd8WjGkMHk8IVkioEECeAsPokpC0J8/view?usp=sharing)
 
 
 
