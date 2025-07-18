@@ -75,29 +75,26 @@ Performed with `pandas` and `statsmodels`:
   > - CI Range: [+0.60%, +0.94%]
   
 
-
 Notebook: [`02_statistical_analysis_python.ipynb`](notebooks/02_statistical_analysis_python.ipynb)
+
 ---
+## Visualizations
 
 ### 1. Sample Size Required by Minimum Detectable Effect
 ![Power Curve](images/power_curve.png)
 
 This line chart illustrates how the required sample size changes depending on the MDE selected in experiment design.
----
-
-## Visualizations
 
 ### 2. Engagement Rate Comparison
 ![Engagement Rate](images/engagement_bar.png)
 
 This chart compares user engagement rates between the Generic and Personalized message groups.
 
----
 
 ### 3. Observed Lift with 95% Confidence Interval
 ![Confidence Interval](images/lift_confidence_interval.png)
 
-The gold bar shows the observed absolute lift of 0.77%, with confidence bounds at 0.60% and 0.94%.
+The bar shows the observed absolute lift of 0.77%, with confidence bounds at 0.60% and 0.94%.
 
 
 ---
